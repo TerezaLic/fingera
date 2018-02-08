@@ -1,0 +1,15 @@
+Package: Keboola.Fingera.extractor
+Type: Package
+Title: Keboola extractor
+Version: 0.0.1
+Date: 2018-02-08
+Author: Revolt BI
+Maintainer: GG <giuliano@revolt.bi>
+Depends:
+    httr,
+    methods,
+    jsonlite,
+    lubridate,
+    keboola.r.application
+Description: API extractor for Keboola.
+License: MIT + file LICENSE
