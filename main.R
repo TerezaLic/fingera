@@ -151,6 +151,12 @@ names(results)<-endpoint_list
 ##Write the tables in the output bucket
 
 map2(results,endpoint_list,function(x,y){fwrite(x,paste0("out/tables/",y,".csv"))})
+ 
+# write table metadata - set new primary key 
+# map2(results,endpoint_list,function(x,y){
+#       csvFileName<-(x,paste("/data/out/tables/",y,".csv",sep = ""))
+# app$writeTableManifest(csvFileName,destination='' ,primaryKey =c('id'))
+#})
 
 #time logs
 
