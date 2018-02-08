@@ -27,9 +27,6 @@ user<-app$getParameters()$user
 
 
 # devel -------------------------------------------------------------------
-
-password<-
-user<-
 api<-"http://kosik.fingera.com/api/"
 
 endpoint<-"day_schedules"
@@ -154,7 +151,6 @@ names(results)<-endpoint_list
 ##Write the tables in the output bucket
 
 map2(results,endpoint_list,function(x,y){fwrite(x,paste0("out/tables/",y,".csv"))})
-
 
 #time logs
 
