@@ -150,7 +150,7 @@ names(results)<-endpoint_list
 
 ##Write the tables in the output bucket
 
-map2(results,endpoint_list,function(x,y){fwrite(x,paste0("out/tables/",y,".csv"))})
+map2(results,endpoint_list,function(x,y){fwrite(x,paste0("/data/out/tables/",y,".csv"))})
  
 # write table metadata - set new primary key 
 # map2(results,endpoint_list,function(x,y){
@@ -178,4 +178,4 @@ time_logs_2<-pmap_df(users,get_timelog_day)
 
 #if(dim(missing_users)[1]>1){missing_logs<-getTimeLogs(missing_users$id, api)}
 
-fwrite(time_logs_2,"out/tables/time_logs_2.csv")
+fwrite(time_logs_2,"/data/out/tables/time_logs_2.csv")
