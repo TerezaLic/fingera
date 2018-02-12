@@ -1,14 +1,15 @@
 
 #Install the libraries
-library(httr)
-library(data.table)
-library(xml2)
-library(purrr)
-library(doParallel)
-library(dplyr)
-library(jsonlite)
-library(lubridate)
-library('keboola.r.docker.application')
+library(httr, quietly=TRUE)
+library(data.table, quietly=TRUE)
+library(xml2, quietly=TRUE)
+library(purrr, quietly=TRUE)
+library(doParallel, quietly=TRUE)
+library(dplyr, quietly=TRUE)
+library(jsonlite, quietly=TRUE)
+library(lubridate, quietly=TRUE)
+
+library('keboola.r.docker.application', quietly=TRUE)
 
 #=======BASIC INFO ABOUT THE Fingera EXTRACTOR========#
 
@@ -24,7 +25,9 @@ app$readConfig()
 # access the supplied value of 'myParameter'
 password<-app$getParameters()$`#password`
 user<-app$getParameters()$user
-
+days<-app$getParameters()$days
+start_date<-Sys.Date()-days
+end_date<-Sys.Date()
 
 # devel -------------------------------------------------------------------
 api<-"http://kosik.fingera.com/api/"
@@ -36,7 +39,7 @@ url<-paste0(api,endpoint)
 
 if(is.null(user)) stop("enter your username in the user config field")
 if(is.null(password)) stop("enter your password in the #password config field")
-if(is.null(api)) stop("enter the API url")
+if(is.null(api)) stop("no API url")
 
 ## List of possible endpoints
 endpoint_list<-c(
@@ -57,8 +60,9 @@ get_timelog_day<-function(...){
   user_attr<-list(...)
   
   user_id<-user_attr[[1]]
-  from<-as_date(user_attr[[2]])
-  to<-if_else(is.na(user_attr[[3]]),Sys.Date(),as_date(user_attr[[3]]))
+  from<-if_else(as_date(user_attr[[2]])<start_date,start_date,as_date(user_attr[[2]]))
+  
+  to<-if_else(is.na(user_attr[[3]]) | user_attr[[3]]<from ,Sys.Date(),as_date(user_attr[[3]]))
   url <- paste0(api, "time_logs")
   
   from_dates<- seq(from, to,30)
