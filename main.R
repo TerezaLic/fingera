@@ -157,8 +157,8 @@ names(results)<-endpoint_list
 map2(results,endpoint_list,function(x,y){fwrite(x,paste0("/data/out/tables/",y,".csv"))})
  
 # write table metadata - set new primary key 
-
-TableManifest<-lapply(endpoint_list,function(y){
+endpoint_PK<-endpoint_list[endpoint_list != "terminals"]
+TableManifest<-lapply(endpoint_PK,function(y){
         csvFileName<-paste("/data/out/tables/",y,".csv",sep = "")
         app$writeTableManifest(csvFileName,destination='' ,primaryKey =c('id'))})
 
