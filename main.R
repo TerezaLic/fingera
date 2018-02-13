@@ -1,4 +1,5 @@
 suppressWarnings(library(purrr))
+suppressWarnings(library(doParallel))
 
 #Install the libraries
 library(httr, warn.conflicts=FALSE, quietly=TRUE)
