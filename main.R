@@ -1,14 +1,14 @@
 options(warn = -1)
 
 #Install the libraries
-library(httr, quietly=TRUE)
-library(data.table, quietly=TRUE)
-library(xml2, quietly=TRUE)
-library(purrr, quietly=TRUE)
-library(doParallel, quietly=TRUE)
-library(dplyr, quietly=TRUE)
-library(jsonlite, quietly=TRUE)
-library(lubridate, quietly=TRUE)
+library(httr, warn.conflicts=FALSE, quietly=TRUE)
+library(data.table, warn.conflicts=FALSE, quietly=TRUE)
+library(xml2, warn.conflicts=FALSE, quietly=TRUE)
+library(purrr, warn.conflicts=FALSE, quietly=TRUE)
+library(doParallel, warn.conflicts=FALSE, quietly=TRUE)
+library(dplyr, warn.conflicts=FALSE, quietly=TRUE)
+library(jsonlite, warn.conflicts=FALSE, quietly=TRUE)
+library(lubridate, warn.conflicts=FALSE, quietly=TRUE)
 
 library('keboola.r.docker.application', quietly=TRUE)
 
