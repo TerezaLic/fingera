@@ -9,7 +9,6 @@ library(doParallel, warn.conflicts=FALSE, quietly=TRUE)
 library(dplyr, warn.conflicts=FALSE, quietly=TRUE)
 library(jsonlite, warn.conflicts=FALSE, quietly=TRUE)
 library(lubridate, warn.conflicts=FALSE, quietly=TRUE)
-library(foreach, warn.conflicts=FALSE, quietly=TRUE)
 
 library('keboola.r.docker.application', quietly=TRUE)
 
