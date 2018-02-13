@@ -1,4 +1,4 @@
-options(warn = -1)
+suppressWarnings(library(purrr))
 
 #Install the libraries
 library(httr, warn.conflicts=FALSE, quietly=TRUE)
@@ -19,7 +19,6 @@ library('keboola.r.docker.application', warn.conflicts=FALSE, quietly=TRUE)
 # Main Changes are defining offsets for users
 
 #=======CONFIGURATION========#
-options(warn = 0)
 app <- keboola.r.docker.application::DockerApplication$new('/data/')
 app$readConfig()
 
