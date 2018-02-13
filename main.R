@@ -11,7 +11,7 @@ library(jsonlite, warn.conflicts=FALSE, quietly=TRUE)
 library(lubridate, warn.conflicts=FALSE, quietly=TRUE)
 library(foreach, warn.conflicts=FALSE, quietly=TRUE)
 
-library('keboola.r.docker.application', quietly=TRUE)
+library('keboola.r.docker.application', warn.conflicts=FALSE, quietly=TRUE)
 
 #=======BASIC INFO ABOUT THE Fingera EXTRACTOR========#
 
