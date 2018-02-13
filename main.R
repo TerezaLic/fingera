@@ -1,5 +1,7 @@
 
 #Install the libraries
+suppressMessages(library(doParallel))
+
 library(httr, warn.conflicts=FALSE, quietly=TRUE)
 library(data.table, warn.conflicts=FALSE, quietly=TRUE)
 library(xml2, warn.conflicts=FALSE, quietly=TRUE)
