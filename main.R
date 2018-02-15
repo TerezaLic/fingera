@@ -155,9 +155,10 @@ names(results)<-endpoint_list
 
 
 ##Write the tables in the output bucket
+sink("msgs")
+map2(results,endpoint_list,function(x,y){fwrite(x,paste0("/data/out/tables/",y,".csv"))})
+sing(Null)
 
-walk2(results,endpoint_list,function(x,y){fwrite(x,paste0("/data/out/tables/",y,".csv"))})
- 
 # write table metadata - set new primary key 
 endpoint_PK<-endpoint_list[endpoint_list != "terminals"]
 TableManifest<-lapply(endpoint_PK,function(y){
