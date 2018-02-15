@@ -57,7 +57,7 @@ endpoint_list<-c(
   "users")
 
 ##Get timelogs for one fucking day
-
+sink("msgs")
 get_timelog_day<-function(...){
   user_attr<-list(...)
   
@@ -145,6 +145,7 @@ getStats <- function(endpoint, api) {
   result<-res%>%distinct
   
 }
+sink(NULL)
 
 
 system.time(
