@@ -28,11 +28,10 @@ app$readConfig()
 password<-app$getParameters()$`#password`
 user<-app$getParameters()$user
 days<-app$getParameters()$days
-#api<-app$getParameters()$url
+api<-app$getParameters()$url
 start_date<-Sys.Date()-days
 end_date<-Sys.Date()
 
-api<-"http://kosik.fingera.com/api/"
 
 endpoint<-"day_schedules"
 url<-paste0(api,endpoint)
