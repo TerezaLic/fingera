@@ -162,7 +162,7 @@ map2(results,endpoint_list,function(x,y){fwrite(x,paste0("/data/out/tables/",y,"
 endpoint_PK<-endpoint_list[endpoint_list != "terminals"]
 TableManifest<-lapply(endpoint_PK,function(y){
         csvFileName<-paste("/data/out/tables/",y,".csv",sep = "")
-        app$writeTableManifest(csvFileName,destination='' ,primaryKey =c('id'))})
+        app$writeTableManifest(csvFileName,destination='' ,primaryKey =c('id'),incremental=TRUE)})
 
 #time logs
 
@@ -185,5 +185,5 @@ time_logs_2<-pmap_df(users,get_timelog_day)
 #if(dim(missing_users)[1]>1){missing_logs<-getTimeLogs(missing_users$id, api)}
 
 fwrite(time_logs_2,"/data/out/tables/time_logs_2.csv")
-app$writeTableManifest("/data/out/tables/time_logs_2.csv",destination='' ,primaryKey =c('id'))
+app$writeTableManifest("/data/out/tables/time_logs_2.csv",destination='' ,primaryKey =c('id'),incremental=TRUE)
 sink(NULL)
